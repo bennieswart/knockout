@@ -45,6 +45,10 @@ ko.utils.compareArrays = (function () {
             thisRow, lastRow,
             bigIndexMaxForRow, bigIndexMinForRow;
 
+        var equals = options['equals'] || function (a, b) {
+            return a === b;
+        };
+
         for (smlIndex = 0; smlIndex <= smlIndexMax; smlIndex++) {
             lastRow = thisRow;
             editDistanceMatrix.push(thisRow = []);
@@ -55,7 +59,7 @@ ko.utils.compareArrays = (function () {
                     thisRow[bigIndex] = smlIndex + 1;
                 else if (!smlIndex)  // Top row - transform empty array into new array via additions
                     thisRow[bigIndex] = bigIndex + 1;
-                else if (smlArray[smlIndex - 1] === bigArray[bigIndex - 1])
+                else if (equals(smlArray[smlIndex - 1], bigArray[bigIndex - 1]))
                     thisRow[bigIndex] = lastRow[bigIndex - 1];                  // copy value (no edit)
                 else {
                     var northDistance = lastRow[bigIndex] || maxDistance;       // not in big (deletion)
