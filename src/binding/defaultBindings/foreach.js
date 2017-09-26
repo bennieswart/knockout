@@ -18,6 +18,7 @@ ko.bindingHandlers['foreach'] = {
                 'foreach': unwrappedValue['data'],
                 'as': unwrappedValue['as'],
                 'noChildContext': unwrappedValue['noChildContext'],
+                'equals': unwrappedValue['equals'],
                 'includeDestroyed': unwrappedValue['includeDestroyed'],
                 'afterAdd': unwrappedValue['afterAdd'],
                 'beforeRemove': unwrappedValue['beforeRemove'],

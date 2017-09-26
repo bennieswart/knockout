@@ -91,6 +91,7 @@
                 var lastArray = isFirstExecution ? [] : ko.utils.arrayMap(lastMappingResult, function (x) { return x.arrayEntry; }),
                     compareOptions = {
                         'dontLimitMoves': options['dontLimitMoves'],
+                        'equals': options['equals'],
                         'sparse': true
                     };
                 editScript = ko.utils.compareArrays(lastArray, array, compareOptions);
